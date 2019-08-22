@@ -1,0 +1,23 @@
+//https://www.geeksforgeeks.org/write-a-program-to-reverse-an-array-or-string/
+
+arr = [1,2]
+
+def reverse(arr):
+
+  n = len(arr)
+  if (n == 0):
+    return []
+
+  k = n-1
+  for i in range(n//2):
+      temp = arr[i]
+      arr[i] = arr[k-i]
+      arr[k-i]= temp
+
+  return arr
+
+print(reverse(arr))
+   
+
+
+  

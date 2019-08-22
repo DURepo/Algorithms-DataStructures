@@ -1,0 +1,43 @@
+#https://www.techiedelight.com/change-elements-row-column-j-matrix-0-cell-j-value-0/
+
+mArr = [[1,0,1],[1,0,1],[1,1,1]]
+mArr1=[[1,1,0,1,1],[1,1,1,1,1],[1,1,1,0,1],[1,1,1,1,1],[0,1,1,1,1]]
+
+def matrix(mArr):
+  n = len(mArr)
+  m = len(mArr[0])
+
+  x = [None]*n
+
+  y = [None]*m
+  xyp = 0
+
+  for i in range(n):
+    for j in range(m):
+      if(mArr[i][j]==0):
+        x[xyp] = i
+        y[xyp] = j
+        xyp +=1
+
+  #update columns
+  for k in range(xyp):
+    xp = x[k]
+    for a in range(m):
+      mArr[xp][a]=0
+  
+  #update Rows
+  for k in range(xyp):
+    yp = y[k]
+    for b in range(n):
+      mArr[b][yp]=0
+
+  return mArr
+
+print(matrix(mArr1))
+
+
+
+
+
+
+

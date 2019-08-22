@@ -1,0 +1,69 @@
+#binary search with and without recurssion
+
+arr = [1,2,3,4,5]
+ele = 5
+
+def bsearch(arr, ele):
+
+  n = len(arr)
+
+  p1 = 0
+  p2 = n-1
+
+  while(p2>=p1):
+    # print("p1: ", p1)
+    # print("p2: ", p2)
+  
+    pos=(p1 + p2)//2
+    midEle = arr[pos]
+
+    if( midEle == ele):
+      return (pos)
+    
+    elif(midEle> ele):
+      p2 = pos
+    
+    else:
+      p1 = pos +1 
+
+  return "not found"
+
+
+
+def recSearch(p1,p2, arr, ele):
+
+  if(p2 < p1):
+    print("returning: not found")
+    
+    return "Not Found"
+
+  midPos = (p1+p2)//2
+  midEle = arr[midPos]
+
+
+  if(midEle == ele):
+    
+    return midPos
+  
+  elif(midEle > ele):   
+    return recSearch(p1, midPos, arr, ele)
+    
+  
+  else:    
+    return recSearch(midPos+1, p2, arr, ele)
+    
+
+
+
+def bsearchRecurssion(arr, ele):
+
+  n = len(arr)
+  p1=0
+  p2=n-1
+
+  return recSearch(p1, p2, arr, ele)
+
+
+
+print(bsearchRecurssion(arr, ele))
+
